@@ -1,0 +1,163 @@
+$colores: (amarillo:yellow, verde:green, celeste:skyblue, marron:brown, negro:black, blanco:white, ); 
+@mixin sizes($width, $height) {
+    height: $height;
+    width: $width;
+ }
+ @mixin flex ($dir, $jus, $alg){
+display: flex;
+flex-direction: $dir;
+justify-content: $jus;
+align-items: $alg;     
+ }
+ 
+
+header {
+    @include flex(center,center,center);
+    display: flex;
+    @include sizes(100%,none);
+
+}
+#Menu{
+    @include flex(column,center,none);
+    display: flex;
+    @include sizes (100px, 180px);
+    color:white;
+    background: linear-gradient(to bottom, red, orange, yellow, green,skyblue);
+    border: none;
+    float: left;
+    cursor: pointer;
+    border: 5px solid;
+
+a{
+    text-decoration: none;
+    color:map-get($map: $colores, $key: negro);
+}
+}
+
+#titulo{
+    @include flex(center,center,none);
+    display: flex;
+    @include sizes (350px, 75px);
+    margin: 30px;
+    border: 2px solid;
+    font-family: 'Noto Sans', sans-serif;
+    background: linear-gradient(to left, red, orange, yellow, green, blue);
+    transform: skewY(5deg);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#parrafo {
+    @include flex(center,center,center);
+    height: 100%;
+    display: flex;
+
+}
+
+
+            
+table {
+    @include sizes (50%, 50%);
+    border: 1px solid #000;
+    
+ th, td {
+    width: 25%;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid black;
+ }
+}
+
+
+#footer{ clear:both;
+    width:100%;
+    height: 200px;
+    background-color: map-get($map: $colores, $key:negro);
+    #formulariodecontacto{
+        @include sizes (50%, 100%);
+        float:left;
+        background-color: map-get($map: $colores, $key:negro);
+        color:  map-get($map: $colores, $key:blanco);
+        }
+        #redes{
+            @extend #formulariodecontacto
+          }
+        }
+        #imagenfacebook{
+            @include sizes (50px, 50px);
+            display: flex;
+            border: 3px solid black;
+            text-decoration: none;
+          }
+          #imageninstagram{
+            @extend #imagenfacebook
+        }
+        #imagengmail{
+             @extend #imagenfacebook
+        }
+       
+        @media only screen and (max-width: 800px){
+        body {
+            padding: auto;
+            margin: auto;
+        }
+    
+            header {
+                @include sizes(50%,none);
+                @include flex(center,center,none);
+                display: flex;
+                padding: auto;
+                margin: auto;
+
+            
+            }
+            .titulo{
+                @include flex(center,center,none);
+                display: flex;
+                @include sizes (300px, 60px);
+                font-family: 'Noto Sans', sans-serif;
+                background: linear-gradient(to left, red, orange, yellow, green, blue);
+                transform: skewY(5deg);
+
+            }
+            .titulocomunicacion{
+             background: map-get($map: $colores, $key:celeste);
+            }
+            .tituloarquitectura{
+                background: map-get($map: $colores, $key: amarillo);
+            }
+            .tituloasesorialegal{
+                background: map-get($map: $colores, $key: marron);
+            }
+            .tituloenfermeria{
+
+                background: map-get($map: $colores, $key: verde);
+            }
+            .fotos{
+                display: flex;
+                @include flex(row,center,none);
+                margin: auto;
+                @include sizes(500px,220px);
+            }
+        }
+
+        @media (max-width: 400px){
+            body {
+                padding: auto;
+                margin: auto;
+            }
+        
+                header {
+                    width:80%;
+                    justify-content: center;
+                    flex-wrap: nowrap;
+                    align-items: center;
+                }
+                .fotos{
+                    display: flex;
+                    @include flex(row,center,none);
+                    margin: auto;
+                    @include sizes(300px,135px);
+                }
+                
+            }
